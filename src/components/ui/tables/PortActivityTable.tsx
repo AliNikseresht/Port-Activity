@@ -60,12 +60,17 @@ export default function PortActivityTable({
                 "Remarks",
                 "Deductions",
                 "Actions",
-              ].map((label) => (
+              ].map((label, index, arr) => (
                 <th
                   key={label}
-                  className="px-3 py-2 border-b border-gray-300 text-left text-sm"
+                  className="pl-3 py-2 border-b border-gray-300 text-left text-sm"
                 >
-                  {label}
+                  <div className="flex items-center gap-2 justify-between">
+                    {label}
+                    {index !== arr.length - 1 && (
+                      <div className="h-6 w-[1.5px] bg-gray-300 rounded-md"></div>
+                    )}
+                  </div>
                 </th>
               ))}
             </tr>
@@ -74,15 +79,15 @@ export default function PortActivityTable({
             {rows.map((row, idx) => (
               <tr
                 key={row.id}
-                className={`hover:bg-gray-50 duration-200 px-3 py-2 border-b border-gray-300 text-sm whitespace-nowrap ${
+                className={`hover:bg-gray-50 duration-200 border-b border-gray-300 text-sm whitespace-nowrap ${
                   row.isHighlighted ? "bg-red-100" : ""
                 }`}
               >
-                <td className="px-3 py-2 text-sm whitespace-nowrap">
+                <td className="pl-3 py-2 text-sm whitespace-nowrap">
                   {row.day}
                 </td>
 
-                <td className="px-3 py-2 text-sm">
+                <td className="pl-1 pr-3 py-2 text-sm">
                   <select
                     className="cursor-pointer outline-none rounded py-1 px-1 w-full"
                     value={row.activityType}
@@ -98,7 +103,7 @@ export default function PortActivityTable({
                   </select>
                 </td>
 
-                <td className="px-3 py-2 text-sm whitespace-nowrap">
+                <td className="pl-3 py-2 text-sm whitespace-nowrap">
                   <ReactDatePicker
                     selected={row.fromDateTime}
                     onChange={(date) =>
@@ -106,7 +111,7 @@ export default function PortActivityTable({
                     }
                     showTimeSelect
                     dateFormat="Pp"
-                    className="cursor-pointer outline-none rounded py-1 px-1 w-full"
+                    className="cursor-pointer outline-none rounded"
                     timeIntervals={15}
                   />
                 </td>
@@ -148,15 +153,16 @@ export default function PortActivityTable({
                   />
                 </td>
 
-                <td className="px-3 py-2 text-sm text-center">
+                <td className="px-3 py-2 text-sm text-left">
                   {formatDuration(row.deductionHours)}
                 </td>
 
-                <td className="px-3 py-2 text-sm whitespace-nowrap flex gap-2 items-center justify-end">
+                <td className="px-2 py-2.5 text-sm whitespace-nowrap flex gap-1.5 items-center justify-end">
                   {row.isHighlighted && (
                     <button
                       onClick={() => adjustRow(row.id)}
                       className="hover:text-green-600 cursor-pointer duration-200"
+                      title="Error entered in date. Click to correct."
                     >
                       <HiMiniAdjustmentsVertical size={21} />
                     </button>

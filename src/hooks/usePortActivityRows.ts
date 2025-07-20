@@ -51,8 +51,8 @@ export function usePortActivityRows() {
             toDateTime: last.toDateTime,
             isHighlighted: false,
             remarks: "",
-            activityType: ACTIVITY_TYPES[0], 
-            percent: 0, 
+            activityType: ACTIVITY_TYPES[0],
+            percent: 0,
           }
         : {
             id: generateId(),
@@ -86,7 +86,6 @@ export function usePortActivityRows() {
         const clone = {
           ...row,
           id: generateId(),
-          fromDateTime: row.toDateTime,
           isHighlighted: false,
         };
         const newRows = [...prev];
