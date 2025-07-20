@@ -22,9 +22,9 @@ function CustomTable<T>({
             {columns.map((col, i) => (
               <th
                 key={col.id || i}
-                className="pl-2 py-2 border-b border-gray-300 text-left text-sm"
+                className="pl-2 py-2 border-b border-gray-300 text-left text-xs lg:text-sm"
               >
-                <div className="flex items-center gap-2 justify-between">
+                <div className="flex items-center lg:gap-2 justify-between w-18 lg:w-auto">
                   {col.header}
                   {i !== columns.length - 1 && (
                     <div className="h-6 w-[1.5px] bg-gray-300 rounded-md"></div>
@@ -46,7 +46,7 @@ function CustomTable<T>({
               {columns.map((col, cidx) => (
                 <td
                   key={cidx}
-                  className="pl-2 py-2 border-b border-gray-200 text-sm"
+                  className="pl-2 py-2 border-b border-gray-200 text-xs lg:text-sm"
                 >
                   {col.accessor(row)}
                 </td>

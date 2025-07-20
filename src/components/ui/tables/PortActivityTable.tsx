@@ -29,13 +29,13 @@ export default function PortActivityTable({
   return (
     <div className="shadow bg-white rounded-xl p-4">
       <div className="flex justify-between items-center mb-3">
-        <h2 className="flex items-center gap-2 font-bold text-xl">
+        <h2 className="flex items-center gap-2 font-bold text-sm lg:text-xl">
           <div className="h-5 w-[3px] bg-indigo-500 rounded-lg" />
           Port Activity
         </h2>
         <button
           onClick={addNewRow}
-          className={`px-4 py-1.5 rounded-md duration-300 ${
+          className={`px-4 py-1.5 rounded-md duration-300 text-sm lg:text-base ${
             isEnabled
               ? "bg-gray-300 text-[#242424] hover:bg-gray-500 hover:text-white cursor-pointer"
               : "bg-gray-100 text-gray-400 cursor-not-allowed"
@@ -63,7 +63,7 @@ export default function PortActivityTable({
               ].map((label, index, arr) => (
                 <th
                   key={label}
-                  className="pl-3 py-2 border-b border-gray-300 text-left text-sm"
+                  className="pl-3 py-2 border-b border-gray-300 text-left text-xs lg:text-sm"
                 >
                   <div className="flex items-center gap-2 justify-between">
                     {label}
@@ -83,13 +83,13 @@ export default function PortActivityTable({
                   row.isHighlighted ? "bg-red-100" : ""
                 }`}
               >
-                <td className="pl-3 py-2 text-sm whitespace-nowrap">
+                <td className="pl-3 py-2 text-xs lg:text-sm whitespace-nowrap">
                   {row.day}
                 </td>
 
-                <td className="pl-1 pr-3 py-2 text-sm">
+                <td className="pl-1 pr-3 py-2 text-xs lg:text-sm">
                   <select
-                    className="cursor-pointer outline-none rounded py-1 px-1 w-full"
+                    className="cursor-pointer outline-none rounded py-1 px-1 w-20 lg:w-full"
                     value={row.activityType}
                     onChange={(e) =>
                       updateRowField(row.id, { activityType: e.target.value })
@@ -103,7 +103,7 @@ export default function PortActivityTable({
                   </select>
                 </td>
 
-                <td className="pl-3 py-2 text-sm whitespace-nowrap">
+                <td className="pl-3 py-2 text-xs lg:text-sm whitespace-nowrap">
                   <ReactDatePicker
                     selected={row.fromDateTime}
                     onChange={(date) =>
@@ -116,13 +116,13 @@ export default function PortActivityTable({
                   />
                 </td>
 
-                <td className="px-3 py-2 text-sm">
+                <td className="px-3 py-2 text-xs lg:text-sm">
                   {formatDuration(row.durationHours)}
                 </td>
 
-                <td className="px-3 py-2 text-sm">
+                <td className="pl-1 pr-3 lg:px-3 py-2 text-xs lg:text-sm">
                   <select
-                    className="cursor-pointer outline-none rounded py-1 px-1 w-full"
+                    className="cursor-pointer outline-none rounded py-1 px-1 w-12 lg:w-full"
                     value={row.percent}
                     onChange={(e) =>
                       updateRowField(row.id, {
@@ -138,11 +138,11 @@ export default function PortActivityTable({
                   </select>
                 </td>
 
-                <td className="px-3 py-2 text-sm whitespace-nowrap">
+                <td className="px-3 py-2 text-xs lg:text-sm whitespace-nowrap">
                   {formatDateTime(row.toDateTime)}
                 </td>
 
-                <td className="px-3 py-2 text-sm">
+                <td className="px-3 py-2 text-xs lg:text-sm">
                   <input
                     type="text"
                     className="border border-gray-200 outline-none rounded py-1 px-1 w-full"
@@ -153,11 +153,11 @@ export default function PortActivityTable({
                   />
                 </td>
 
-                <td className="px-3 py-2 text-sm text-left">
+                <td className="px-3 py-2 text-xs lg:text-sm text-left">
                   {formatDuration(row.deductionHours)}
                 </td>
 
-                <td className="px-2 py-2.5 text-sm whitespace-nowrap flex gap-1.5 items-center justify-end">
+                <td className="px-2 py-2.5 text-xs lg:text-sm whitespace-nowrap flex gap-1.5 items-center justify-end">
                   {row.isHighlighted && (
                     <button
                       onClick={() => adjustRow(row.id)}

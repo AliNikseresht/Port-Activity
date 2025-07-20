@@ -108,7 +108,7 @@ export const laytimeColumns: Column<LayTime>[] = [
         <img
           src={`https://flagcdn.com/w40/${row.countryCode.toLowerCase()}.png`}
           alt={row.countryCode}
-          className="w-5 h-5 object-cover rounded-sm"
+          className="w-4 h-4 lg:w-7 lg:h-5 object-cover rounded-sm"
         />
       </div>
     ),
@@ -172,8 +172,8 @@ export const laytimeColumns: Column<LayTime>[] = [
       });
       return (
         <div className="flex flex-col text-sm">
-          <span>{date.toLocaleDateString()}</span>
-          <span className="text-gray-500 text-xs">
+          <span className="text-xs lg:text-sm">{date.toLocaleDateString()}</span>
+          <span className="text-gray-500 text-[9px] lg:text-xs">
             {dayShort} {time}
           </span>
         </div>
@@ -191,8 +191,8 @@ export const laytimeColumns: Column<LayTime>[] = [
       });
       return (
         <div className="flex flex-col text-sm">
-          <span>{date.toLocaleDateString()}</span>
-          <span className="text-gray-500 text-xs">
+          <span className="text-xs lg:text-sm">{date.toLocaleDateString()}</span>
+          <span className="text-gray-500 text-[9px] lg:text-xs">
             {dayShort} {time}
           </span>
         </div>

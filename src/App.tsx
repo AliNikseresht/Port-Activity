@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="flex w-full min-h-screen flex-col gap-4">
       <section className="shadow bg-white rounded-xl p-4">
-        <h2 className="flex items-center gap-2 mb-4 font-bold text-xl">
+        <h2 className="flex items-center gap-2 mb-4 font-bold text-sm lg:text-xl">
           <div className="h-5 w-[3px] bg-indigo-500 rounded-lg"></div>
           Lay Times
         </h2>
